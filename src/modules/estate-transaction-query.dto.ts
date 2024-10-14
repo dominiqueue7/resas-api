@@ -1,4 +1,5 @@
-import { IsInt, Min, Max, IsIn } from 'class-validator';
+import { IsInt, Min, Max, IsIn, Validate } from 'class-validator';
+import { CityCodeValidator } from './city-code.validator';
 
 export class EstateTransactionQueryDto {
   @IsInt()
@@ -12,6 +13,7 @@ export class EstateTransactionQueryDto {
   prefCode: number;
 
   @IsInt()
+  @Validate(CityCodeValidator)
   cityCode: number;
 
   @IsIn([1, 2, 3, 4, 5])
